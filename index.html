@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div class="h1">
+        <h1 id="result">Result:</h1>
+      </div>
+
+    <input type="text" class = "input" id="calculator" readonly>
+
+    <div class="aa">
+    <input type="button" class = "a" value="1" onclick="calc(this.value)">
+    <input type="button" class = "a" value="2" onclick="calc(this.value)">
+    <input type="button" class = "a" value="3" onclick="calc(this.value)">
+  </div>
+  <div class="bb"></div>
+    <input type="button" class = "a" value="4" onclick="calc(this.value)">
+    <input type="button" class = "a" value="5" onclick="calc(this.value)">
+    <input type="button" class = "a" value="6" onclick="calc(this.value)">
+</div>
+<div class="cc"></div>
+    <input type="button" class = "a" value="7" onclick="calc(this.value)">
+    <input type="button" class = "a" value="8" onclick="calc(this.value)">
+    <input type="button" class = "a" value="9" onclick="calc(this.value)">
+</div>
+    <div class="bb"></div>
+    <input type="button" class = "a" value="0" onclick="calc(this.value)">
+</div>
+    <input type="button" class = "a" value="*" onclick="sumb(this.value)">
+    <input type="button" class = "a" value="-" onclick="sumb(this.value)">
+</div>
+    <p id='error' class="error"></p>
+    <p id='error1' class="error"></p>
+
+</body>
+
+
+<script>
+    var number_one;
+    var number_two;
+    var symbol;
+
+
+
+    function calc(number) {
+        if (number_one == undefined ) {
+            number_one = number
+            document.getElementById("calculator").value += number
+        } 
+        else if (number_two == undefined && symbol != undefined)
+         {
+            number_two = number
+            document.getElementById("calculator").value += number
+            if(symbol == '*') {
+                document.getElementById('result').textContent = number_one * number_two
+            }
+            else if (symbol == '-') {
+                document.getElementById("result").textContent = number_one - number_two
+            }
+        }
+            else{
+                document.getElementById('error').textContent = 'Вы ввели второе число'
+            }
+        }
+    
+
+    function sumb(symb) {
+        if(symbol == undefined) {
+            symbol = symb
+            document.getElementById("calculator").value += symb
+        }  else {
+            document.getElementById('error').textContent = 'Вам надо ввести число'
+           
+        }
+    }
+
+
+
+
+</script>
+
+</html>
+
+
